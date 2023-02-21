@@ -139,7 +139,7 @@ class Base extends Component {
       this.setMeetingExisted(false);
     }
 
-    /// In case theconst OUTPUT_DEVICE_ID_KEY = 'audioOutputDeviceId'; meeting delayed to load
+    // In case theconst OUTPUT_DEVICE_ID_KEY = 'audioOutputDeviceId'; meeting delayed to load
     if (!subscriptionsReady || !meetingExist) return;
 
     if (approved && loading) this.updateLoadingState(false);
@@ -270,16 +270,6 @@ class Base extends Component {
         window.close();
       });
       return null;
-    }
-
-    if (ejected) {
-      return (
-        <MeetingEnded
-          code="403"
-          ejectedReason={ejectedReason}
-          callback={() => Base.setExitReason('ejected')}
-        />
-      );
     }
     
     if (ejected || BBBStorage.getItem(USER_WAS_EJECTED)) {
